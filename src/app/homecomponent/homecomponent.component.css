@@ -1,0 +1,29 @@
+.bg-grey{
+    background-color: rgb(107, 170, 170);
+}
+
+.main-bg{
+    background-color: rgb(230, 255, 255);
+}
+
+.to-do-list{
+    height: 86vh;
+    width: 50vh;
+    
+    background-color: rgb(155, 226, 226);
+    margin: 25px 25px 0px 10px;
+    border-radius: 10px;
+    box-shadow: grey;
+}
+
+.todo-items{
+height:10vh;
+width: 70vh;
+background-color: rgb(255, 255, 255);
+margin: 10px 5px 5px 5px;
+box-shadow: 10px 10px 8px #bbb3b3;
+border-radius: 30px;
+z-index: 2;
+
+
+}
