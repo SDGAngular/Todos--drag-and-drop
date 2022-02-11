@@ -13,21 +13,37 @@
     </div>
     <div class="row">
         <div class="col">
-            <div class="container to-do-list">
+            <div class="container to-do-list" id="all-todos" >
                 <div class="row">
-                    <div class="todo-items">
-                        
+                    <ng-container *ngFor="let items of MyTodos " >
+                        <div class="todo-items" (dragstart)="dragStart(items)"  (dragend)="dragEnd(items)" *ngIf="!items.inprogress&&!items.iscompleted"  [draggable]="true">
+                            <h5 class ="todo-heading">{{items.title}}</h5>
                     </div>
+                    </ng-container>
+
+                    
                 </div>
             </div>
         </div>
 
-        <div class="col to-do-list">
-
+        <div class="col to-do-list" id="in-progress"  (dragover)="dragOver('progress')" >
+           <div class="row">
+            <ng-container *ngFor="let items of MyTodos " >
+                <div class="todo-items" *ngIf="items.inprogress" (dragstart)="dragStart(items)"  (dragend)="dragEnd(items)"[draggable]="true">
+                    <h5 class ="todo-heading">{{items.title}}</h5>
+            </div>
+            </ng-container>
+           </div>
         </div>
 
-        <div class="col to-do-list">
-
+        <div class="col to-do-list" id="completed"  (dragover)="dragOver('completed')" >
+           <div class="row">
+            <ng-container *ngFor="let items of MyTodos" >
+                <div class="todo-items"  *ngIf="items.iscompleted" (dragstart)="dragStart(items)"  (dragend)="dragEnd(items)" [draggable]="true">
+                    <h5 class ="todo-heading">{{items.title}}</h5>
+            </div>
+            </ng-container>
+           </div>
         </div>
     </div>
 </div>
